@@ -53,7 +53,7 @@ print ("Thank you and goodbye")
 
 # a) No, the output of all different versions of code remains the same. Every code effectively does the same thing except with different lines of code.
 
-# b) Version 3 of the code seems the most efficient and easiest to understand. 
+# b) Version 3 of the code seems to be the most efficient and easiest to understand. 
 # To begin, version 3 and 2 both use only one if statement. Comparatively, version 1 has five nested if statements.
 # Now that we have determined why version 3 and 2 are more efficient than version 1, why is version 3 easier to understand and more efficient than version 2?
 # Though both versions 2 and 3 use the same number of lines, version 3 is easier to understand

@@ -6,23 +6,19 @@ if price < 0.0:
     
 elif price >= 100.0:
 
-    print ("You can save 40%")
-    print (f"Your final price is: {price*0.6}")
+    print (f"You can save 40% \nYour final price is: {round(price*0.6,2)}")
 
 elif price >= 75.0:
 
-    print ("You can save 30%")
-    print (f"Your final price is: {price*0.7}")
+    print (f"You can save 30% \nYour final price is: {round(price*0.7,2)}")
 
 elif price >=50.0:
     
-    print ("You can save 20%")
-    print (f"Your final price is: {price*0.8}")
+    print (f"You can save 20% \nYour final price is: {round(price*0.8,2)}")
 
 elif price >=25.0:
 
-    print ("You can save 10%")
-    print (f"Your final price is: {price*0.9}")
+    print (f"You can save 10% \nYour final price is: {round(price*0.9,2)}")
 
 else:
     

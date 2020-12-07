@@ -11,6 +11,6 @@ else:
 
 # Upper case letters are actually smaller than lower case letters, meaning they have a higher priority than lower case letters.  
 # The code will recognize ANY uppercase letter as smaller than ANY lowercase number. 
-# So for example, uppercase letter 'X' is still smaller than lowercase letter "a" and is thus still alphabetically first according to our cold.
-# By turning all letters into lowercase letters, all letters can now actually be evaluated by their places int he alphabet.
-# The code will now be able to recognize which number is alphabetically first, without uppercase letters interfering
+# So for example, uppercase letter 'X' is still smaller than lowercase letter "a" and is thus still alphabetically first according to python.
+# By turning all letters into lowercase letters, all letters can now actually be evaluated by their order in the alphabet.
+# The code will now be able to recognize which word is alphabetically first, without uppercase letters interfering
