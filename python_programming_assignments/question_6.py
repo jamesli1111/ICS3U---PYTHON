@@ -1,9 +1,12 @@
 """
+Question #6 quadratic or linear relation?
+James li
+Dec. 9. 2020
 This program asks a user if they want to see a table of either a quadratic function or a linear relation with values of their choosing.
-The desired values of the chosen relation is then formatted into a table of values and then dsiplayed to the user.
+The x and y values of the chosen relation is then calculated and formatted into a table of values, then displayed to the user.
 """
 
-class InputError(Exception):
+class QuadraticOrLinearInputError(Exception):
 
     pass
 
@@ -11,80 +14,93 @@ class PlayAgainInputError(Exception):
 
     pass
 
-while True: 
+def quadratic():
 
-    try:
+    #Makes sure the user inputs a number for a, b, and c values
+    while True:
+        try:
+            print("For the Quadratic function: y=ax^2 + bx + c")
+            a = float(input("Enter a number value for ‘a’: "))
+            b = float(input("Enter a number value for ‘b’: "))
+            c = float(input("Enter a number value for ‘c’: ")) 
+            break
+        except ValueError:
+            print("That is not a number!")
 
-        quadratic_or_linear = input("Which relationship would you like to see a table of values of? \n1. quadratic \n2. linear \n")
+    #makes sure that the table of values begins with negative domain values
+    x = (-b/(2*a)) - 6
 
-        if quadratic_or_linear != "1" or quadratic_or_linear != "2":
-            raise InputError
-        break
-    
-    #in case the user enters something other than '1' or '2', the program will not crash
-    except InputError:
+    print(f"{'x':>11}{'y':>9}")
 
-        print("Please enter 1 for a quadratic function and 2 for a linear relation")
+    #rounds values of a quadratic function to one decimal place and formats numbers to the right by 12 and 9 spaces
 
+    #formats the negative domain part of the table of values
+    for i in range(6):
+        x += 1
+        print(f"{round(x,2):>12}{round(a*x**2+b*x+c,2):>9}")
+
+    #formats positive domain part of the table of values
+    for i in range(5):
+        x += 1
+        print(f"{round(x,2):>12}{round(a*x**2+b*x+c,2):>9}")
+
+def linear():
+
+    #Makes sure the user inputs a number for a, b, and c values
+    while True:
+        try:
+            print("For the linear equation: y = mx + b")
+            m = float(input("Enter a number value for 'm': "))
+            b = float(input("Enter a number value for 'b': "))
+            break
+        except ValueError:
+            print("That is not a number!")
+
+    #makes sure that the table of values begins with negative domain values   
+    x = -6
+
+    print(f"{'x':>11}{'y':>9}")
+
+    #Does the same thing as thing as code lines, 38 through 45
+    #formats negative domain part of table
+    for i in range(5):
+        x += 1
+        print(f"{round(x,2):>12}{round(m*x+b,2):>9}")
+
+    #formats positive domain part of table 
+    for i in range(6):
+        x += 1
+        print(f"{round(x,2):>12}{round(m*x+b,2):>9}")
+
+while True:
+    while True: 
+        try:
+            quadratic_or_linear = input("Which relationship would you like to see a table of values of? \n1. quadratic \n2. linear \n")
+
+            if quadratic_or_linear != "1" and quadratic_or_linear != "2":
+                raise QuadraticOrLinearInputError
+            break
+        #makes sure that the user enters either "1" or "2"
+        except QuadraticOrLinearInputError:
+            print("Please enter 1 for a quadratic function and 2 for a linear relation")
+    #the number '1' represents the user picking a quadratic function
     if quadratic_or_linear == "1":
-
-        print("For the Quadratic function: y=ax^2 + bx + c")
-        a = float(input("Enter a value for ‘a’: "))
-        b = float(input("Enter a value for ‘b’: "))
-        c = float(input("Enter a value for ‘c’: ")) 
-
-        #makes sure that the table of values begins with negative domain values
-        x = (-b/(2*a)) - 6
-
-        print(f"{'x':>11}{'y':>9}")
-
-        #rounds values of a quadratic function to one decimal place and formats numbers to the right by 12 and 9 spaces
-
-        #formats the negative domain part of the table of values
-        for i in range(6):
-            x += 1
-            print(f"{round(x,1):>12}{round(a*x**2+b*x+c,1):>9}")
-
-        #formats positive domain part of the table of values
-        for i in range(5):
-            x += 1
-            print(f"{round(x,1):>12}{round(a*x**2+b*x+c,1):>9}")
-
-
+        quadratic()
+    #the number '2' represents the user picking a linear relation
     elif quadratic_or_linear == "2":
+        linear()
+    while True:
+        try:   
+            play_again = input("Would you like to see another table of values of another relation? (Y/N) ")
 
-        print("For the linear equation: y = mx + b")
-        m = float(input("Enter a value for 'a': "))
-        b = float(input("Enter a value for 'b': "))
-
-        x = -6
-
-        print(f"{'x':>11}{'y':>9}")
-
-        #rounds values of a linear relation to one decimal place and formats numbers to the right by 12 and 9 spaces
-
-        #formats negative domain part of table of values
-        for i in range(5):
-            x += 1
-            print(f"{round(x,1):>12}{round(m*x+b,1):>9}")
-    
-        #formats positive domain part of table of values
-        for i in range(6):
-            x += 1
-            print(f"{round(x,1):>12}{round(m*x+b,1):>9}")
-            
-    try:   
-
-        play_again = input("Would you like to see another table of values of another relation? (Y/N) ")
-        
-        #makes sure that the program doesn't restart unless the user types 'Y' (yes)
-        if play_again != "N" or play_again != "Y":
-            raise PlayAgainInputError
-        break
-
-    except PlayAgainInputError:
-        print("Please enter a 'Y' for play again and a 'N' to quit")
-        
-        if play_again == "N":
-            print("Thank you, goodbye")
-        break  
+            #makes sure that the user types either "Y" or "N"
+            if play_again != "N" and play_again != "Y":
+                raise PlayAgainInputError
+            break
+        except PlayAgainInputError:
+            print("Please enter a 'Y' for play again and an 'N' to quit")
+    if play_again == "N":
+        print("Thank you, goodbye")
+        break 
+    elif play_again == "Y":
+        continue    
