@@ -14,6 +14,7 @@ class PlayAgainInputError(Exception):
 
     pass
 
+#this function asks for the user's values of their quadratic function, then makes a table of values
 def quadratic():
 
     #Makes sure the user inputs a number for a, b, and c values
@@ -44,6 +45,7 @@ def quadratic():
         x += 1
         print(f"{round(x,2):>12}{round(a*x**2+b*x+c,2):>9}")
 
+#this function asks for the values of the user's linear relation, then makes a table of values 
 def linear():
 
     #Makes sure the user inputs a number for a, b, and c values
