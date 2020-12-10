@@ -1,4 +1,4 @@
-relation_or_function = input(f"Which relationship would you like to see a table of values of? \n1. quadratic \n2. linear \n")
+relation_or_function = input("Which relationship would you like to see a table of values of? \n1. quadratic \n2. linear \n")
 
 if relation_or_function == "1":
 
