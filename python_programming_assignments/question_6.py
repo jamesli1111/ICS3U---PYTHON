@@ -63,7 +63,8 @@ def linear():
 
     print(f"{'x':>11}{'y':>9}")
 
-    #Does the same thing as thing as code lines, 38 through 45
+    #Does the same thing as thing as code lines, 38 through 46
+
     #formats negative domain part of table
     for i in range(5):
         x += 1
@@ -79,10 +80,11 @@ while True:
         try:
             quadratic_or_linear = input("Which relationship would you like to see a table of values of? \n1. quadratic \n2. linear \n")
 
+            #makes sure that the user enters either "1" or "2"
             if quadratic_or_linear != "1" and quadratic_or_linear != "2":
                 raise QuadraticOrLinearInputError
             break
-        #makes sure that the user enters either "1" or "2"
+        
         except QuadraticOrLinearInputError:
             print("Please enter 1 for a quadratic function and 2 for a linear relation")
     #the number '1' represents the user picking a quadratic function
