@@ -5,7 +5,7 @@ game_type = input (f"Do you want to:\n1. Choose a number between 1 and 100 or\n2
 if game_type == "1":
      
     while True:
-            generated_number = random.randint(1,4)
+            generated_number = random.randint(1,101)
             guess = int(input("What is your guess?"))
             count += 1
 
